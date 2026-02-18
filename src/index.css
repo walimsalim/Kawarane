@@ -1,0 +1,189 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #f9f5ec 0, #e6dfcf 60%, #d7cfbd 100%);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#root {
+  width: 100%;
+}
+
+.app {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 16px 20px 32px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.control-group input[type='range'] {
+  width: 180px;
+}
+
+.control-group input[type='color'] {
+  width: 42px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: transparent;
+}
+
+.control-group select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+.export-button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #111;
+  color: #f9f9f9;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out,
+    background 0.2s ease-out;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+.export-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
+  background: #222;
+}
+
+.export-button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Skriveflate */
+
+.writer-container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.writer-area {
+  border-radius: 12px;
+  padding: 24px 28px;
+  min-height: 320px;
+  max-height: 520px;
+  overflow: auto;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+/* Tekstur-varianter simulert med CSS */
+
+.texture-none {
+  background-image: none;
+}
+
+.texture-paper {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.04) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.05) 0, transparent 55%);
+  background-blend-mode: multiply;
+}
+
+.texture-noise {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  background-blend-mode: overlay;
+}
+
+.writer-editable {
+  outline: none;
+  cursor: text;
+}
+
+.writer-editable div {
+  line-height: 1.4;
+}
+
+/* Placeholder-ish hint når alt er tomt */
+
+.writer-editable:empty::before {
+  content: 'Start å skrive…';
+  opacity: 0.4;
+  font-style: italic;
+}
+
+/* Info-tekst */
+
+.hint {
+  font-size: 12px;
+  opacity: 0.7;
+}
